@@ -55,6 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  String format(int seconds) {
+    var duration = Duration(seconds: seconds);
+    duration.toString().split('.').first.substring(2, 7);
+    return duration.toString().split('.').first.substring(2, 7);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '$seconds',
+                format(seconds),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
